@@ -163,22 +163,18 @@ header::before {
     width: 380px;
     height: 380px;
     z-index: 1;
-    /* animation: slideInRight 0.8s ease; */
 }
 
 .profile-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    border-radius: 50%;
     border: 4px solid var(--accent-1);
     box-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
-    /* transition: all 0.5s ease; */
-    /* animation: morph 8s ease-in-out infinite; */
 }
 
 .profile-image:hover img {
-    border-radius: 50%;
     box-shadow: 0 0 50px var(--accent-1);
 }
 
@@ -191,19 +187,7 @@ header::before {
     border-radius: 50%;
     background: radial-gradient(circle, rgba(0, 242, 254, 0.2) 0%, transparent 70%);
     z-index: -1;
-    animation: neonPulse 3s infinite;
 }
-
-/* @keyframes morph {
-    0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
-    50% { border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%; }
-    100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
-}
-
-@keyframes slideInRight {
-    from { opacity: 0; transform: translateX(50px); }
-    to { opacity: 1; transform: translateX(0); }
-} */
 
 header h1 {
     font-size: 4.5rem;
