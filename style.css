@@ -121,7 +121,7 @@ header {
     background: radial-gradient(circle at center, #1a1a2e 0%, var(--bg-main) 100%);
     color: #fff;
     padding: 8rem 0;
-    text-align: center;
+    text-align: left;
     position: relative;
     overflow: hidden;
 }
@@ -144,10 +144,65 @@ header::before {
     animation: gridScroll 10s linear infinite;
 }
 
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+}
+
 .header-content {
+    flex: 1;
     position: relative;
     z-index: 1;
-    animation: slideInDown 0.8s ease;
+    animation: slideInLeft 0.8s ease;
+}
+
+.profile-image {
+    position: relative;
+    width: 380px;
+    height: 380px;
+    z-index: 1;
+    animation: slideInRight 0.8s ease, float 6s ease-in-out infinite;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    border: 4px solid var(--accent-1);
+    box-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
+    transition: all 0.5s ease;
+    animation: morph 8s ease-in-out infinite;
+}
+
+.profile-image:hover img {
+    border-radius: 50%;
+    box-shadow: 0 0 50px var(--accent-1);
+}
+
+.image-glow {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 242, 254, 0.2) 0%, transparent 70%);
+    z-index: -1;
+    animation: neonPulse 3s infinite;
+}
+
+@keyframes morph {
+    0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+    50% { border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%; }
+    100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+}
+
+@keyframes slideInRight {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
 }
 
 header h1 {
@@ -809,6 +864,15 @@ footer {
         font-size: 3.5rem;
     }
 
+    .header-container {
+        gap: 2rem;
+    }
+
+    .profile-image {
+        width: 320px;
+        height: 320px;
+    }
+
     .skills-grid, .projects-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -846,6 +910,18 @@ footer {
 
     header {
         padding: 6rem 0;
+        text-align: center;
+    }
+
+    .header-container {
+        flex-direction: column-reverse;
+        gap: 3rem;
+    }
+
+    .profile-image {
+        width: 280px;
+        height: 280px;
+        margin: 0 auto;
     }
 
     header h1 {
