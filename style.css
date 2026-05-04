@@ -7,9 +7,9 @@
     --bg-card: #12121f;
     --accent-1: #00f2fe;
     --accent-2: #7000ff;
-    --text-glow: 0 0 10px rgba(0, 242, 254, 0.5);
-    --card-glow: 0 0 20px rgba(112, 0, 255, 0.2);
-    --neon-border: 1px solid rgba(0, 242, 254, 0.2);
+    --text-glow: 0 0 15px rgba(0, 242, 254, 0.8);
+    --card-glow: 0 0 30px rgba(112, 0, 255, 0.3);
+    --neon-border: 1px solid rgba(0, 242, 254, 0.4);
 }
 
 /* Reset and base styles */
@@ -28,6 +28,17 @@ body {
     line-height: 1.6;
     color: #e2e8f0;
     background-color: var(--bg-main);
+    overflow-x: hidden;
+}
+
+#bg-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
 }
 
 h1, h2, h3, .logo {
@@ -118,7 +129,7 @@ h1, h2, h3, .logo {
 
 /* Header */
 header {
-    background: radial-gradient(circle at center, #1a1a2e 0%, var(--bg-main) 100%);
+    background: transparent;
     color: #fff;
     padding: 8rem 0;
     text-align: left;
@@ -126,22 +137,9 @@ header {
     overflow: hidden;
 }
 
+/* Removed CSS grid in favor of Three.js */
 header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: 
-        linear-gradient(rgba(0, 242, 254, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 242, 254, 0.05) 1px, transparent 1px);
-    background-size: 40px 40px;
-    perspective: 500px;
-    transform: rotateX(60deg) scale(2);
-    transform-origin: top;
-    opacity: 0.3;
-    animation: gridScroll 10s linear infinite;
+    display: none;
 }
 
 .header-container {
@@ -163,6 +161,17 @@ header::before {
     width: 380px;
     height: 380px;
     z-index: 1;
+}
+
+#hero-3d-model {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 500px;
+    z-index: -1;
+    pointer-events: none;
 }
 
 .profile-image img {
@@ -198,6 +207,7 @@ header h1 {
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 20px rgba(0, 242, 254, 0.5));
     animation: glowText 3s ease-in-out infinite;
 }
 
@@ -314,7 +324,8 @@ section p {
 
 /* About Section */
 #about {
-    background: var(--bg-sec);
+    background: rgba(10, 10, 18, 0.7);
+    backdrop-filter: blur(10px);
 }
 
 .about-content {
@@ -366,7 +377,7 @@ section p {
 
 /* Skills Section */
 #skills {
-    background: var(--bg-main);
+    background: transparent;
     position: relative;
 }
 
@@ -430,7 +441,8 @@ section p {
 
 /* Projects Section */
 #projects {
-    background: var(--bg-sec);
+    background: rgba(10, 10, 18, 0.7);
+    backdrop-filter: blur(10px);
 }
 
 .projects-grid {
@@ -518,7 +530,7 @@ section p {
 
 /* Experience Section */
 #experience {
-    background: var(--bg-main);
+    background: transparent;
 }
 
 .experience-content {
@@ -593,7 +605,8 @@ section p {
 
 /* Achievements Section */
 #achievements {
-    background: var(--bg-sec);
+    background: rgba(10, 10, 18, 0.7);
+    backdrop-filter: blur(10px);
     position: relative;
 }
 
