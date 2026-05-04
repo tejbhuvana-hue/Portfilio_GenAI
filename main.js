@@ -9,6 +9,19 @@ const COLORS = {
     secondary: 0x7000ff,
     bg: 0x020205
 };
+const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
 
 // --- Scene Setup ---
 const canvas = document.querySelector('#bg-canvas');

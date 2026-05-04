@@ -257,22 +257,6 @@
         </div>
     </footer>
 
-    <!-- Mobile Menu Script -->
-    <script>
-        const menuToggle = document.getElementById('mobile-menu');
-        const navLinks = document.querySelector('.nav-links');
-
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
-                navLinks.classList.remove('active');
-            }
-        });
-    </script>
     <script type="module" src="main.js"></script>
 </body>
 </html>
